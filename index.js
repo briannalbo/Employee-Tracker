@@ -1,6 +1,12 @@
 const { prompt } = require('inquirer');
 const db = require('./db');
 require('console.table');
+const PORT = process.env.PORT || 3005;
+
+app.listen(PORT, () => {
+    console.log('im listening');
+
+});
 
 function employeeMenu() {
     prompt([
