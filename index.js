@@ -28,6 +28,18 @@ function employeeMenu() {
                     name: "View All Roles"
                 },
                 {
+                    name: "Add a Department"
+                },
+                {
+                    name: "Add an Employee"
+                },
+                {
+                    name: "Add a Role"
+                },
+                {
+                    name: "Update an Employee Role"
+                },
+                {
                     name: "Exit Menu"
                 },
             ]
