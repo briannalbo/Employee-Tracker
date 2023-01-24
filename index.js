@@ -1,8 +1,8 @@
 const { prompt } = require('inquirer');
-const { displayDepartments, allEmployees, allRoles } = require('./db/index');
+const { displayDepartments, allEmployees, allRoles, addRole, addEmployee, addDepartment, updateEmployeeRole } = require('./db/helpers');
 // let { allEmployees } = require('./db/index')
 // const allEmployees = require('./db/index');
-const db = require('./db');
+const connector = require('./db/connection');
 require('console.table');
 const PORT = process.env.PORT || 3306;
 
@@ -10,6 +10,12 @@ const PORT = process.env.PORT || 3306;
 //     console.log('im listening');
 
 // });
+
+
+
+
+
+
 
 function employeeMenu() {
     prompt([
@@ -62,6 +68,25 @@ function employeeMenu() {
             case "Exit Menu":
                 console.log('Goodbye.');
                 break;
+            case "Add a Department":
+                addDepartment();
+                employeeMenu();
+                break;
+            case "Add an Employee":
+                addEmployee();
+                employeeMenu();
+                break;
+            case "Add a Role":
+                addRole();
+                employeeMenu();
+                break;
+            case "Update an Employee Role":
+                updateEmployeeRole();
+                
+                // employeeMenu();
+                break;
+            case "Exit Menu":
+                console.log('Goodbye.')
             default:
                     console.log('???????')
                     break;
@@ -75,3 +100,5 @@ function employeeMenu() {
 
 
 employeeMenu();
+
+module.exports = employeeMenu;
