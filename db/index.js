@@ -1,12 +1,31 @@
 
 const connector = require('./connection');
 
-function displayAllEmp() {
-    return this.connector.promise().query(
-        "SELECT employee.id, employee.first_name, employee.last_name, role.Title, department.Department AS Department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id;"
-    
-         );
-};
 
-module.exports = displayAllEmp;
+
+function displayDepartments() {
+    console.log("Viewing all departments");
+   connector.query("SELECT * FROM department;", function (err, res) {
+      if (err) throw err;
+      console.table(res);
+    });
+  };
+
+  function allEmployees() {
+    console.log("Viewing all employees");
+    connector.query("SELECT * FROM employee;", function (err, res) {
+      if (err) throw err;
+      console.table(res);
+    });
+  };
+
+  function allRoles() {
+    console.log("Viewing all roles");
+    connector.query("SELECT * FROM roles;", function (err, res) {
+      if (err) throw err;
+      console.table(res);
+    });
+  };
+
+module.exports =  { displayDepartments, allEmployees, allRoles };
 
