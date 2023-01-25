@@ -1,6 +1,10 @@
 
 const connector = require('./connection');
 const inquirer = require('inquirer');
+const { prompt } = require('inquirer');
+require('console.table');
+const PORT = process.env.PORT || 3306;
+
 
 
 
@@ -95,6 +99,7 @@ function displayDepartments() {
         const managers = res;
   
         const empQ = () => {
+          console.clear();
           return inquirer
             .prompt([
               {
@@ -157,6 +162,7 @@ function displayDepartments() {
 
   function addDepartment() {
     const newDepartment = () => {
+      console.clear();
       return inquirer
         .prompt([
           {
@@ -242,7 +248,7 @@ function displayDepartments() {
             })
             .then(() => {
               console.log("Employee role updated!");
-              // employeeMenu();
+              employeeMenu();
             })
             .catch((err) => console.log(err));
         };
@@ -251,8 +257,107 @@ function displayDepartments() {
       });
     });
   }
+
+
+
+
+
+  function employeeMenu() {
+    prompt([
+        {
+            type: "list",
+            name: "choice",
+            message: "What would you like to do?",
+            choices: [
+                {
+                    name: "View All Departments"
+                },
+                {
+                    name: "View All Employees"
+                },
+                {
+                    name: "View All Roles"
+                },
+                {
+                    name: "Add a Department"
+                },
+                {
+                    name: "Add an Employee"
+                },
+                {
+                    name: "Add a Role"
+                },
+                {
+                    name: "Update an Employee Role"
+                },
+                {
+                    name: "Exit Menu"
+                },
+            ]
+        }
+    ])
+    .then((data) => {
+        switch (data.choice) {
+            case "View All Departments":
+              console.clear();
+                displayDepartments();
+                employeeMenu();
+                console.clear();
+                break;
+            case "View All Employees":
+              console.clear();
+                allEmployees();
+                employeeMenu();
+                console.clear();
+                break;
+            case "View All Roles":
+              console.clear();
+                allRoles();
+                employeeMenu();
+                break;
+            case "Exit Menu":
+                console.log('Goodbye.');
+                break;
+            case "Add a Department":
+                addDepartment();
+                
+                break;
+            case "Add an Employee":
+                addEmployee();
+                
+                break;
+            case "Add a Role":
+                addRole();
+                
+                break;
+            case "Update an Employee Role":
+                updateEmployeeRole();
+                
+                // employeeMenu();
+                break;
+            case "Exit Menu":
+                console.log('Goodbye.')
+            default:
+                    console.log('???????')
+                    break;
+
+        }
+    }
+)
+};
+
+
+
+
+employeeMenu();
+
+// module.exports = employeeMenu;
+
+
+
+
   
 
 
-module.exports =  { displayDepartments, allEmployees, allRoles, addRole, addEmployee, addDepartment, updateEmployeeRole };
+// module.exports =  { displayDepartments, allEmployees, allRoles, addRole, addEmployee, addDepartment, updateEmployeeRole };
 
