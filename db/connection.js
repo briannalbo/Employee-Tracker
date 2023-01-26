@@ -1,5 +1,6 @@
+//require mysql package
 const mysql = require('mysql2');
-
+//sets connection to db
 const connector = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -7,5 +8,5 @@ const connector = mysql.createConnection({
     database: 'employeesLog'
 
 });
-
+//exports connection to be used in application
 module.exports = connector;
