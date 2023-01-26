@@ -10,6 +10,7 @@
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Application](#application)
   - [License](#license)
   - [Contributions](#contributions)
   - [Questions](#questions)
@@ -20,6 +21,12 @@
   ## Usage
   Once node is installed and an npm install has been done, open the terminal using the index.js file's path and enter 'node index.js' to invoke the application.
 
+  ## Application
+  Once the application is started, the main menu will be displayed. User's can choose from options of which data they would like to view, add, or update.
+  ## <p align="center">Main Menu<p align="center">
+  ![emptrack1.jpg](https://github.com/briannalbo/Employee-Tracker/blob/main/images/emptrack1.jpg)
+ ## <p align="center">Employee Information<p align="center">
+  ![emptrack2.jpg](https://github.com/briannalbo/Employee-Tracker/blob/main/images/emptrack2.jpg)
   ## License
 This project is licensed under the Apache License 2.0.
 - For information about this license, please visit: https://choosealicense.com/licenses/apache-2.0
