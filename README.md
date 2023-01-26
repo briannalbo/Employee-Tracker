@@ -23,6 +23,8 @@
 
   ## Application
   Once the application is started, the main menu will be displayed. User's can choose from options of which data they would like to view, add, or update.
+  Demo Video: https://drive.google.com/file/d/183kMVkXRARHNCjiovKtGavmAwTKmsdiV/view
+  
   ## <p align="center">Main Menu<p align="center">
   ![emptrack1.jpg](https://github.com/briannalbo/Employee-Tracker/blob/main/images/emptrack1.jpg)
  ## <p align="center">Employee Information<p align="center">
